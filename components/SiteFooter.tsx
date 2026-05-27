@@ -42,6 +42,16 @@ export function SiteFooter() {
                 서비스 이용약관
               </Link>
             </li>
+            <li>
+              <a
+                href="https://color-of-days.web.app/other-apps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-primary"
+              >
+                개발자의 다른 앱
+              </a>
+            </li>
           </ul>
         </div>
       </div>
