@@ -1,6 +1,18 @@
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://pickngo-9a4f1.web.app";
+const FALLBACK_URL = "https://pickngo-9a4f1.web.app";
+
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return FALLBACK_URL;
+  const cleaned = raw.replace(/\/$/, "");
+  try {
+    new URL(cleaned);
+    return cleaned;
+  } catch {
+    return FALLBACK_URL;
+  }
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 export const SITE_NAME = "Pick and Go";
 
