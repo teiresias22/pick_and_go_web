@@ -143,3 +143,19 @@ export function TermsJsonLd() {
   };
   return <JsonLdScript data={data} />;
 }
+
+export function OtherAppsJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "개발자의 다른 앱",
+    url: `${SITE_URL}/other-apps`,
+    inLanguage: "ko-KR",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+    about: {
+      "@type": "Thing",
+      name: "Pick and Go 개발자가 만든 다른 모바일 앱 모음",
+    },
+  };
+  return <JsonLdScript data={data} />;
+}
