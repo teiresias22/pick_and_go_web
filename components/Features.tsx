@@ -15,17 +15,31 @@ const FEATURES = [
   },
   {
     emoji: "🎡",
-    title: "결정의 재미, 3가지 게임",
+    title: "결정의 재미, 5가지 게임",
     desc:
-      "단순히 결과만 보여주지 않습니다. 룰렛·사다리·카드 뽑기 중 원하는 방식으로 추첨 과정의 설렘을 즐기세요.",
-    chip: "룰렛 · 사다리 · 카드",
+      "단순히 결과만 보여주지 않습니다. 룰렛·사다리·카드 뽑기·스크래치·로또볼 중 원하는 방식으로 추첨 과정의 설렘을 즐기세요.",
+    chip: "룰렛 · 사다리 · 카드 · 스크래치 · 로또볼",
   },
   {
     emoji: "🛡️",
-    title: "검증된 우연 — 유효성 가드",
+    title: "검증된 우연 — 도달 가능성 검증",
     desc:
-      "운행 가능 노선, 환승 거리, 야간 위험 지역까지 검사한 결과만 노출됩니다. 우연이지만 실행 가능한 코스.",
-    chip: "위험 지역 제외",
+      "출발지 기준 가용·환승 노선을 추려내고, 난이도별 거리 범위 안의 후보에서만 추첨합니다. 우연이지만 실제로 갈 수 있는 코스.",
+    chip: "가용 노선 · 거리 범위",
+  },
+  {
+    emoji: "⭐",
+    title: "출발지 북마크",
+    desc:
+      "자주 쓰는 지하철역·버스 정류장을 별 토글로 저장하세요. 조건 설정 화면 상단의 즐겨찾기 칩에서 한 번에 다시 선택할 수 있어요.",
+    chip: "지하철 · 버스 즐겨찾기",
+  },
+  {
+    emoji: "🎫",
+    title: "다녀온 곳 도장첩",
+    desc:
+      "다녀온 코스를 별점·메모와 함께 기록하면 지역·활동 도장이 점등되고 여행자 뱃지가 쌓여요. 목적지 근처에선 GPS로 자동 체크인됩니다.",
+    chip: "체크인 · 도장 깨기",
   },
   {
     emoji: "🗺️",
@@ -50,7 +64,7 @@ export function Features() {
         <div className="max-w-2xl">
           <p className="text-sm font-semibold text-brand-primary">FEATURES</p>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-brand-onPrimaryContainer">
-            우연을 설계하는 6가지 방법
+            우연을 설계하는 8가지 방법
           </h2>
           <p className="mt-4 text-brand-onSurface/70 leading-relaxed">
             Pick and Go는 단순한 랜덤 추첨이 아닙니다. 도달 가능성과 안전,

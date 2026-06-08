@@ -16,8 +16,8 @@ export function Hero() {
           </h1>
           <p className="mt-6 text-base sm:text-lg text-brand-onSurface/75 leading-relaxed max-w-xl mx-auto lg:mx-0">
             지금 내 위치, 이동수단, 남은 시간으로 떠날 수 있는 가장 즐거운
-            랜덤 코스. 룰렛·사다리·카드 뽑기로 결정 과정의 설렘까지
-            챙기는 Gamification 여행 앱.
+            랜덤 코스. 룰렛·사다리·카드 등 5가지 게임으로 결정 과정의
+            설렘까지 챙기는 Gamification 여행 앱.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
             <a
@@ -37,7 +37,7 @@ export function Hero() {
           <dl className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
             <Stat label="이동수단" value="2종" />
             <Stat label="추첨 슬롯" value="4개" />
-            <Stat label="결정 게임" value="3가지" />
+            <Stat label="결정 게임" value="5가지" />
           </dl>
         </div>
 

@@ -19,7 +19,7 @@ export const SITE_NAME = "Pick and Go";
 export const SITE_TAGLINE = "계획 없는 즐거움, 검증된 우연";
 
 export const SITE_DESCRIPTION =
-  "Pick and Go는 사용자의 위치·이동수단·시간을 분석해 실행 가능한 랜덤 여행 코스를 게임처럼 추천하는 모바일 앱입니다. 룰렛·사다리·카드 뽑기로 결정 과정의 설렘까지 제공합니다.";
+  "Pick and Go는 사용자의 위치·이동수단·시간을 분석해 실행 가능한 랜덤 여행 코스를 게임처럼 추천하는 모바일 앱입니다. 룰렛·사다리·카드·스크래치·로또볼 5가지 게임으로 결정 과정의 설렘을 더하고, 다녀온 코스는 도장첩에 기록할 수 있습니다.";
 
 export const SITE_KEYWORDS = [
   "Pick and Go",
@@ -36,6 +36,8 @@ export const SITE_KEYWORDS = [
   "오늘 뭐하지",
   "주말 나들이",
   "당일치기 여행",
+  "여행 도장 깨기",
+  "다녀온 곳 기록",
 ];
 
 export const APP_AVAILABILITY = {
