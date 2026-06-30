@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     languages: { "ko-KR": "/" },
   },
   category: "travel",
+  verification: {
+    google: "wNAcf53CmAdf-qLaM_oGozp3X_OGw8V_gNLBuiahOuE",
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
