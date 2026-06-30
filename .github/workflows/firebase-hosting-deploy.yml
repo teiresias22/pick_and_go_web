@@ -40,10 +40,36 @@ jobs:
           NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
+      # Deploy via the Firebase CLI directly (instead of action-hosting-deploy)
+      # so the release is idempotent. The CLI occasionally retries the
+      # non-idempotent release POST after a "premature close" — by then the first
+      # POST already made the version live, so the retry returns
+      # 400 "is the current active version". That is a success, not a failure.
       - name: Deploy to Firebase Hosting (live)
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PICKNGO_9A4F1 }}
-          channelId: live
-          projectId: pickngo-9a4f1
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PICKNGO_9A4F1 }}
+        run: |
+          set -euo pipefail
+
+          CRED_FILE="$RUNNER_TEMP/firebase-service-account.json"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$CRED_FILE"
+          export GOOGLE_APPLICATION_CREDENTIALS="$CRED_FILE"
+          trap 'rm -f "$CRED_FILE"' EXIT
+
+          set +e
+          DEPLOY_LOG="$(npx --yes firebase-tools deploy \
+            --only hosting \
+            --project pickngo-9a4f1 \
+            --non-interactive 2>&1)"
+          STATUS=$?
+          set -e
+
+          echo "$DEPLOY_LOG"
+
+          if [ "$STATUS" -ne 0 ]; then
+            if echo "$DEPLOY_LOG" | grep -q "is the current active version"; then
+              echo "::notice::Release retried after the version was already live (idempotent race). Treating as success."
+            else
+              exit "$STATUS"
+            fi
+          fi
